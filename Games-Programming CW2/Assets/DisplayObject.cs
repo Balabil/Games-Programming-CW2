@@ -11,7 +11,8 @@ public class DisplayObject : MonoBehaviour
     public float idetifyRange = 50f;
     private string nameObject;
     private bool hitObject;
-
+    private GameObject desk;
+    public AudioSource Thud;
     // Update is called once per frame
     
 
@@ -29,7 +30,11 @@ public class DisplayObject : MonoBehaviour
                         {
                             //sets hit object to true to allow the gui to show the user they can interact with the object
                             hitObject = true;
-                            nameObject = "Press E to Kick Desk"; 
+                            nameObject = "Press E to Kick Desk";
+                            if (Input.GetKeyDown("e")){
+                                desk = hit2.collider.gameObject;
+                                Kick();
+                                }
 
                         }
                         //if statement that handles the win condition, the player must be in possession of the key, have found and interacted with the door and killed the boss monster
@@ -45,6 +50,12 @@ public class DisplayObject : MonoBehaviour
  
             GUI.Box(new Rect(Screen.width/2, Screen.height/2, Screen.width/10, Screen.height/35), nameObject);
         }
+    }
+
+    void Kick()
+    {
+        Thud.Play();
+        desk.GetComponent<Rigidbody>().AddForce(100 * transform.forward * 5, ForceMode.Acceleration);
     }
 }
 
