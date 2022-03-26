@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - Table
+  - Alarm
   layers:
   - Default
   - TransparentFX
