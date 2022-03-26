@@ -55,7 +55,7 @@ public class DisplayObject : MonoBehaviour
     void Kick()
     {
         Thud.Play();
-        desk.GetComponent<Rigidbody>().AddForce(100 * transform.forward * 5, ForceMode.Acceleration);
+        desk.GetComponent<Rigidbody>().AddForce(1900 * transform.up *-1, ForceMode.Acceleration);
     }
 }
 
