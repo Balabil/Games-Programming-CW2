@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chair1 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
+      propertyPath: m_TagString
+      value: Table
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
       propertyPath: m_RootOrder
       value: 41
@@ -280,6 +284,7 @@ GameObject:
   - component: {fileID: 249521528}
   - component: {fileID: 249521527}
   - component: {fileID: 249521526}
+  - component: {fileID: 249521529}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -367,6 +372,19 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &249521529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249521524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9fc335b45efe184091777a77e9907ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idetifyRange: 50
 --- !u!1001 &259860911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -377,6 +395,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
       propertyPath: m_Name
       value: chair1 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
+      propertyPath: m_TagString
+      value: Table
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
       propertyPath: m_RootOrder
@@ -466,6 +488,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chair1 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
+      propertyPath: m_TagString
+      value: Table
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
       propertyPath: m_RootOrder
       value: 42
@@ -553,6 +579,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
       propertyPath: m_Name
       value: chair1 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
+      propertyPath: m_TagString
+      value: Table
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
       propertyPath: m_RootOrder
@@ -1301,6 +1331,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chair1 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
+      propertyPath: m_TagString
+      value: Table
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
       propertyPath: m_RootOrder
       value: 37
@@ -1482,6 +1516,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chair1 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
+      propertyPath: m_TagString
+      value: Table
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
       propertyPath: m_RootOrder
       value: 39
@@ -1570,6 +1608,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chair1 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
+      propertyPath: m_TagString
+      value: Table
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
       propertyPath: m_RootOrder
       value: 43
@@ -1657,6 +1699,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
       propertyPath: m_Name
       value: chair1 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
+      propertyPath: m_TagString
+      value: Table
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
       propertyPath: m_RootOrder
@@ -2655,6 +2701,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chair1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
+      propertyPath: m_TagString
+      value: Table
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
       propertyPath: m_RootOrder
       value: 33
@@ -2800,6 +2850,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chair1 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
+      propertyPath: m_TagString
+      value: Table
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
       propertyPath: m_RootOrder
       value: 44
@@ -2887,6 +2941,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
       propertyPath: m_Name
       value: chair1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
+      propertyPath: m_TagString
+      value: Table
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
       propertyPath: m_RootOrder
@@ -3144,6 +3202,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chair1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
+      propertyPath: m_TagString
+      value: Table
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
       propertyPath: m_RootOrder
       value: 34
@@ -3346,6 +3408,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chair1 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
+      propertyPath: m_TagString
+      value: Table
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
       propertyPath: m_RootOrder
       value: 47
@@ -3542,6 +3608,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chair1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
+      propertyPath: m_TagString
+      value: Table
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3691,6 +3761,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chair1 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
+      propertyPath: m_TagString
+      value: Table
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
       propertyPath: m_RootOrder
       value: 38
@@ -3778,6 +3852,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
       propertyPath: m_Name
       value: chair1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
+      propertyPath: m_TagString
+      value: Table
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e3fd7e9d6b3f64648beef3391d3952d6, type: 3}
       propertyPath: m_RootOrder
