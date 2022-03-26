@@ -506,7 +506,7 @@ GameObject:
   - component: {fileID: 23155627}
   - component: {fileID: 23155626}
   m_Layer: 5
-  m_Name: Clock Hand
+  m_Name: clockHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1461,6 +1461,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 203223514}
+  - component: {fileID: 203223515}
   m_Layer: 5
   m_Name: Clock
   m_TagString: Untagged
@@ -1489,6 +1490,19 @@ RectTransform:
   m_AnchoredPosition: {x: -605, y: 294}
   m_SizeDelta: {x: 212.836, y: 219.474}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &203223515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203223513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e44b25439d1fbbe41b4e9ac04a6c660d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clockHandTransfrom: {fileID: 23155625}
 --- !u!1001 &221851019
 PrefabInstance:
   m_ObjectHideFlags: 0
