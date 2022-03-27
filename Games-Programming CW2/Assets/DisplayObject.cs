@@ -78,7 +78,6 @@ public class DisplayObject : MonoBehaviour
                         {
                             //sets hit object to true to allow the gui to show the user they can interact with the object
                             hitObject = true;
-                            nameObject = "Press E to Kick Desk";
                             if (hit2.collider.gameObject.tag == "Alarm" && AlarmUsed == false){
                                 nameObject = "Press E to Activate Alarm";
                                 }
@@ -101,7 +100,7 @@ public class DisplayObject : MonoBehaviour
                                 AlarmUsed = true;
                                 count2++;
                                 }
-                            if (Input.GetKeyDown("e") && hit2.collider.gameObject.tag == "Computer" && cd2 == false && aiController.limit < 2){
+                            if (Input.GetKeyDown("e") && hit2.collider.gameObject.tag == "Computer" && cd2 == false){
                                 Windows();
                                 StartActive = true;
                                 cd2 = true;

@@ -21,7 +21,14 @@ public class AIcontroller : MonoBehaviour
     public GameObject Camera;
     public GameObject Player;
     GradeTracker gradeTracker;
-    public float limit;
+    public float count5;
+    public float count6;
+    public float count7;
+    public float count8;
+    public bool actionTriggered;
+    public bool actionTriggered2;
+    public bool actionTriggered3;
+    public bool actionTriggered4;
     PlayerCough playerCough;
 
     // Start is called before the first frame update
@@ -40,7 +47,11 @@ public class AIcontroller : MonoBehaviour
         displayObject = Camera.GetComponent<DisplayObject>();
         gradeTracker = Player.GetComponent<GradeTracker>();
         playerCough = Player.GetComponent<PlayerCough>();
-        limit = 0;
+        count5 = 0;
+        actionTriggered = false;
+        actionTriggered2 = false;
+        actionTriggered3 = false;
+        actionTriggered4 = false;
     }
 
     //This code was taken from https://docs.unity3d.com/Manual/nav-AgentPatrol.html
@@ -60,24 +71,28 @@ public class AIcontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         if(displayObject.AlarmActive == true){
-            
+            actionTriggered = true;
             cd = true;
             gradeTracker.DecreaseGrade(20);
             displayObject.AlarmActive = false;
     }
         if(displayObject.ThudActive == true){
+            actionTriggered2 = true;
             cd = true;
             gradeTracker.DecreaseGrade(5);
             displayObject.ThudActive = false;
     }
         if(playerCough.CoughActive == true){
+            actionTriggered3 = true;
             cd = true;
             gradeTracker.DecreaseGrade(7);
             playerCough.CoughActive = false;
     }
-        if(displayObject.StartActive == true && limit < 2){
-            limit++;
+        if(displayObject.StartActive == true){
+            actionTriggered4 = true;
+       
             cd = true;
             gradeTracker.DecreaseGrade(15);
             displayObject.StartActive = false;
@@ -104,5 +119,37 @@ public class AIcontroller : MonoBehaviour
         
 
 
+    }
+
+     void FixedUpdate() {
+          if(count5 < 2 && actionTriggered == true){
+            count5++;
+            if(count5 > 1  ){
+                count5 = 0;
+                actionTriggered = false;
+            }
+        }
+        if(count6 < 2 && actionTriggered2 == true){
+            count6++;
+            if(count6 > 1  ){
+                count6 = 0;
+                actionTriggered2 = false;
+            }
+        }
+        if(count7 < 2 && actionTriggered3 == true){
+            count7++;
+            if(count7 > 1  ){
+                count7 = 0;
+                actionTriggered3 = false;
+            }
+        }
+        if(count8 < 2 && actionTriggered4 == true){
+            count8++;
+            if(count8 > 1   ){
+                count8 = 0;
+                actionTriggered4 = false;
+            }
+        }
+        
     }
 }
