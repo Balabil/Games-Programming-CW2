@@ -21,6 +21,8 @@ public class AIcontroller : MonoBehaviour
     public GameObject Camera;
     public GameObject Player;
     GradeTracker gradeTracker;
+    public float limit;
+    PlayerCough playerCough;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +38,8 @@ public class AIcontroller : MonoBehaviour
         count = 0;
         displayObject = Camera.GetComponent<DisplayObject>();
         gradeTracker = Player.GetComponent<GradeTracker>();
+        playerCough = Player.GetComponent<PlayerCough>();
+        limit = 0;
     }
 
     //This code was taken from https://docs.unity3d.com/Manual/nav-AgentPatrol.html
@@ -64,6 +68,17 @@ public class AIcontroller : MonoBehaviour
             cd = true;
             gradeTracker.DecreaseGrade(5);
             displayObject.ThudActive = false;
+    }
+        if(playerCough.CoughActive == true){
+            cd = true;
+            gradeTracker.DecreaseGrade(3);
+            playerCough.CoughActive = false;
+    }
+        if(displayObject.StartActive == true && limit < 2){
+            limit++;
+            cd = true;
+            gradeTracker.DecreaseGrade(15);
+            displayObject.StartActive = false;
     }
         if(cd == true && count < 3){
             count = count + Time.deltaTime;

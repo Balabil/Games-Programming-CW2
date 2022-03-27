@@ -8,9 +8,16 @@ public class Gun : MonoBehaviour
     bool canShoot;
     public Camera PlayerCamera;
     public Transform point;
+    private float count;
+    private bool cd;
+    private float count2;
 
-
-
+    private void Start(){
+        cd = false;
+        count = 0;
+        count2 = 0;
+        Time.timeScale = 1f;
+    }
     private void Update()
     {
         PlayerInput();
@@ -18,14 +25,30 @@ public class Gun : MonoBehaviour
      
     private void PlayerInput()
     {
+        if(cd == true && count2 < 5){
+            count2 += Time.deltaTime;
+            if(count2 >= 5){
+                cd = false;
+                count2 = 0;
+                count = 0;
+            }
+        }
         
         canShoot = Input.GetKeyDown(KeyCode.Mouse0); //check to see if user cliecked down on left mouse button
         //start the shooting process
-        if (canShoot)
+        if (canShoot && count < 2 && cd == false)
         {
+            count++;
             Shoot();
+            Shoot();
+            Shoot();
+            Shoot();
+            Shoot();
+            if(count >= 2){
+                cd = true;
+            }
         }
-    }
+        }
 
     private void Shoot()
     {
@@ -47,7 +70,7 @@ public class Gun : MonoBehaviour
         GameObject currentBullet = Instantiate(bullet, point.position, Quaternion.identity); 
         currentBullet.transform.forward = direction.normalized;
         currentBullet.GetComponent<Rigidbody>().AddForce(direction.normalized * shootForce, ForceMode.Impulse);
-
+        Destroy(currentBullet,2f);
     }
  
 }

@@ -12,27 +12,34 @@ public class DisplayObject : MonoBehaviour
     private string nameObject;
     private bool hitObject;
     private GameObject desk;
+    public GameObject Invigilator;
     public AudioSource Thud;
     public AudioSource FireAlarm;
     public AudioSource WindowsStart;
     public bool ThudActive;
     public bool AlarmActive;
     public bool AlarmUsed;
+    public bool StartActive;
     private bool cd;
+    private bool cd2;
     private int count;
     private int count2;
     private float count3;
+    private float count4;
+    AIcontroller aiController;
     // Update is called once per frame
     
     void Start(){
         ThudActive = false;
         AlarmActive = false;
         AlarmUsed = false;
+        StartActive = false;
         cd = false;
         count = 0;
         count2 = 0;
         count3 = 0f;
         Time.timeScale = 1f;
+        aiController = Invigilator.GetComponent<AIcontroller>();
     }
     void Update()
 
@@ -43,11 +50,18 @@ public class DisplayObject : MonoBehaviour
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit2, idetifyRange))
 
                 {
-                        if(cd == true && count3 < 5){
-                            count3 = count3 + Time.deltaTime;
-                            if(count3 >= 5){
-                                count3 = 0;
-                                cd = false;
+                    if(cd == true && count3 < 5){
+                        count3 = count3 + Time.deltaTime;
+                        if(count3 >= 5){
+                            count3 = 0;
+                            cd = false;
+            }
+                    }
+                    if(cd2 == true && count4 < 5){
+                        count4 = count4 + Time.deltaTime;
+                        if(count4 >= 5){
+                            count4 = 0;
+                            cd2 = false;
             }
         }
                         /*if(count == 1){
@@ -86,8 +100,11 @@ public class DisplayObject : MonoBehaviour
                                 AlarmUsed = true;
                                 count2++;
                                 }
-                            if (Input.GetKeyDown("e") && hit2.collider.gameObject.tag == "Computer"){
+                            if (Input.GetKeyDown("e") && hit2.collider.gameObject.tag == "Computer" && cd2 == false && aiController.limit < 2){
                                 Windows();
+                                StartActive = true;
+                                cd2 = true;
+                                count4++;
                                 }
 
                         }

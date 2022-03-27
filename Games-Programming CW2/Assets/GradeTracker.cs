@@ -21,12 +21,6 @@ public class GradeTracker : MonoBehaviour
 
     void Update()
     {
-       if(displayObject.ThudActive == true){
-        DecreaseGrade(5f);
-    }
-    if(displayObject.AlarmActive == true){
-        DecreaseGrade(15f);
-    }
     if(count < 1){
         count += Time.deltaTime;
         if(count >= 1){
