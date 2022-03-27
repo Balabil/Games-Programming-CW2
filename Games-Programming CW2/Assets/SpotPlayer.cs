@@ -30,7 +30,7 @@ public class SpotPlayer : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-           if((aiController.actionTriggered == true)||(aiController.actionTriggered2 == true)||(aiController.actionTriggered3 == true)||(aiController.actionTriggered4 == true) ){
+           if((aiController.actionTriggered == true)||(aiController.actionTriggered2 == true)||(aiController.actionTriggered3 == true)||(aiController.actionTriggered4 == true) || (gun.actionTriggered == true)){
                 Debug.Log("Player Dead");
             }
         }

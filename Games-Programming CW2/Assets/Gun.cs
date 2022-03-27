@@ -11,12 +11,16 @@ public class Gun : MonoBehaviour
     private float count;
     public bool cd;
     public float count2;
+    public bool actionTriggered;
+    public float count5;
 
     private void Start(){
         cd = false;
         count = 0;
         count2 = 0;
         Time.timeScale = 1f;
+        count5 = 0;
+        actionTriggered = false;
     }
     private void Update()
     {
@@ -38,6 +42,7 @@ public class Gun : MonoBehaviour
         //start the shooting process
         if (canShoot && count < 2 && cd == false)
         {
+            actionTriggered = true;
             count++;
             Shoot();
             Shoot();
@@ -49,6 +54,15 @@ public class Gun : MonoBehaviour
             }
         }
         }
+    private void FixedUpdate() {
+        if(count5 < 2 && actionTriggered == true){
+            count5++;
+            if(count5 > 1  ){
+                count5 = 0;
+                actionTriggered = false;
+            }
+        }
+    }
 
     private void Shoot()
     {

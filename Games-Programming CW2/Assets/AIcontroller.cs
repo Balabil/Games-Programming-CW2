@@ -98,9 +98,12 @@ public class AIcontroller : MonoBehaviour
             displayObject.StartActive = false;
     }
         if(cd == true && count < 3){
-            count = count + Time.deltaTime;
+            if(count >= 1){
             agent.destination = transform.position;
             transform.LookAt(player);
+            }
+            count = count + Time.deltaTime;
+
             if(count >= 3){
                 count = 0;
                 cd = false;
