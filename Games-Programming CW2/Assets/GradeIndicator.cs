@@ -10,7 +10,7 @@ public class GradeIndicator : MonoBehaviour
     public Slider slider;
     public Gradient gradient;
     public Image fill;
-    public void SetMaxGrade(int grade)
+    public void SetMaxGrade(float grade)
     {
         slider.maxValue = grade;
         slider.value = grade;
@@ -18,7 +18,7 @@ public class GradeIndicator : MonoBehaviour
         fill.color = gradient.Evaluate(0f);
     }
 
-    public void SetGrade(int grade)
+    public void SetGrade(float grade)
     {
 
         slider.value = grade;

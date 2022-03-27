@@ -7,6 +7,7 @@ TagManager:
   - CinemachineTarget
   - Table
   - Alarm
+  - Computer
   layers:
   - Default
   - TransparentFX

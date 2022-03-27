@@ -4,32 +4,47 @@ using UnityEngine;
 
 public class GradeTracker : MonoBehaviour
 {
-    public int maxGrade = 100;
-    public int currentGrade;
+    public float maxGrade = 100;
+    public float currentGrade;
     public GameObject Camera;
     DisplayObject displayObject;
     public GradeIndicator gradeIndicator;
+    private float count;
     void Start()
     {
         currentGrade = maxGrade;
         gradeIndicator.SetMaxGrade(maxGrade);
         displayObject = Camera.GetComponent<DisplayObject>();
+        Time.timeScale = 1f;
+        count = 0;
     }
 
     void Update()
     {
-       if (Input.GetKeyDown(KeyCode.Space))
-        {
-            DecreaseGrade(1);
-    }
        if(displayObject.ThudActive == true){
-        DecreaseGrade(5);
+        DecreaseGrade(5f);
     }
+    if(displayObject.AlarmActive == true){
+        DecreaseGrade(15f);
+    }
+    if(count < 1){
+        count += Time.deltaTime;
+        if(count >= 1){
+            count = 0;
+            IncreaseGrade(0.5f);
         }
+    }
+}
     
-    void DecreaseGrade(int damage)
+    
+    public void DecreaseGrade(float damage)
     {
         currentGrade -= damage;
+        gradeIndicator.SetGrade(currentGrade);
+    }
+    public void IncreaseGrade(float damage)
+    {
+        currentGrade += damage;
         gradeIndicator.SetGrade(currentGrade);
     }
 }

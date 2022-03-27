@@ -14,6 +14,7 @@ public class DisplayObject : MonoBehaviour
     private GameObject desk;
     public AudioSource Thud;
     public AudioSource FireAlarm;
+    public AudioSource WindowsStart;
     public bool ThudActive;
     public bool AlarmActive;
     public bool AlarmUsed;
@@ -44,18 +45,17 @@ public class DisplayObject : MonoBehaviour
                 {
                         if(cd == true && count3 < 5){
                             count3 = count3 + Time.deltaTime;
-                            if(count3 == 3){
+                            if(count3 >= 5){
                                 count3 = 0;
                                 cd = false;
-                                ThudActive = false;
             }
         }
-                        if(count == 1){
+                        /*if(count == 1){
                             count = 0;
                             ThudActive = false;
                         }
                         if(count2 == 1){
-                            count = 0;
+                            count2 = 0;
                             AlarmActive = false;
                         }
                         /*Checks if the ray hit a movable object*/
@@ -67,18 +67,27 @@ public class DisplayObject : MonoBehaviour
                             if (hit2.collider.gameObject.tag == "Alarm" && AlarmUsed == false){
                                 nameObject = "Press E to Activate Alarm";
                                 }
-                            if (Input.GetKeyDown("e") && hit2.collider.gameObject.tag == "Table"){
+                            if (hit2.collider.gameObject.tag == "Table"){
+                                nameObject = "Press E to Kick Table";
+                                }
+                            if (hit2.collider.gameObject.tag == "Computer"){
+                                nameObject = "Press E to Start Computer";
+                                }
+                            if (Input.GetKeyDown("e") && hit2.collider.gameObject.tag == "Table" && cd == false){
                                 desk = hit2.collider.gameObject;
                                 Kick();
                                 ThudActive = true;
                                 cd = true;
-                                count++;
+                                count3++;
                                 } 
                             if (Input.GetKeyDown("e") && hit2.collider.gameObject.tag == "Alarm" && AlarmUsed == false){
                                 Alarm();
-                                AlarmActive = false;
+                                AlarmActive = true;
                                 AlarmUsed = true;
                                 count2++;
+                                }
+                            if (Input.GetKeyDown("e") && hit2.collider.gameObject.tag == "Computer"){
+                                Windows();
                                 }
 
                         }
@@ -105,6 +114,10 @@ public class DisplayObject : MonoBehaviour
     void Alarm()
     {
         FireAlarm.Play();
+    }
+    void Windows()
+    {
+        WindowsStart.Play();
     }
 }
 

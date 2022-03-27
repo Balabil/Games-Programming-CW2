@@ -13,11 +13,14 @@ public class AIcontroller : MonoBehaviour
     public GameObject gamePoints;
     Transform[] points;
     private int destPoint = 0;
-    
+    DisplayObject displayObject;
     public BoxCollider[] detection;
     public Transform player;
     private bool cd;
     private float count;
+    public GameObject Camera;
+    public GameObject Player;
+    GradeTracker gradeTracker;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,9 +31,11 @@ public class AIcontroller : MonoBehaviour
         //gets the transform of compents that are children of the object
         points = gamePoints.GetComponentsInChildren<Transform>();
         GotoNextPoint();
-        cd = true;
+        cd = false;
         Time.timeScale = 1f;
         count = 0;
+        displayObject = Camera.GetComponent<DisplayObject>();
+        gradeTracker = Player.GetComponent<GradeTracker>();
     }
 
     //This code was taken from https://docs.unity3d.com/Manual/nav-AgentPatrol.html
@@ -50,11 +55,21 @@ public class AIcontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(displayObject.AlarmActive == true){
+            cd = true;
+            gradeTracker.DecreaseGrade(20);
+            displayObject.AlarmActive = false;
+    }
+        if(displayObject.ThudActive == true){
+            cd = true;
+            gradeTracker.DecreaseGrade(5);
+            displayObject.ThudActive = false;
+    }
         if(cd == true && count < 3){
             count = count + Time.deltaTime;
             agent.destination = transform.position;
             transform.LookAt(player);
-            if(count == 3){
+            if(count >= 3){
                 count = 0;
                 cd = false;
             }
