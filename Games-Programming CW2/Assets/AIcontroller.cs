@@ -13,6 +13,11 @@ public class AIcontroller : MonoBehaviour
     public GameObject gamePoints;
     Transform[] points;
     private int destPoint = 0;
+    
+    public BoxCollider[] detection;
+    public Transform player;
+    private bool cd;
+    private float count;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +28,9 @@ public class AIcontroller : MonoBehaviour
         //gets the transform of compents that are children of the object
         points = gamePoints.GetComponentsInChildren<Transform>();
         GotoNextPoint();
+        cd = true;
+        Time.timeScale = 1f;
+        count = 0;
     }
 
     //This code was taken from https://docs.unity3d.com/Manual/nav-AgentPatrol.html
@@ -42,6 +50,15 @@ public class AIcontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(cd == true && count < 3){
+            count = count + Time.deltaTime;
+            agent.destination = transform.position;
+            transform.LookAt(player);
+            if(count == 3){
+                count = 0;
+                cd = false;
+            }
+        }
         //calculates the distance from the player
 
         //if the distance is less than 15 execute case 1, false execute case 2
@@ -49,12 +66,11 @@ public class AIcontroller : MonoBehaviour
 
 
                 //if the agent is not searching for a path and the distance between the destination is less than 0.5
-                if (!agent.pathPending && agent.remainingDistance < 0.5f)
-                    GotoNextPoint();
+        else if (!agent.pathPending && agent.remainingDistance < 0.5f)
+            GotoNextPoint();
                 
         
 
 
     }
 }
-
