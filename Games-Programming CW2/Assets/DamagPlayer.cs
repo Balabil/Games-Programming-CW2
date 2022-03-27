@@ -15,7 +15,8 @@ public class DamagPlayer : MonoBehaviour
     // Update is called once per frame
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Student"){
+        if(collision.gameObject.tag == "Student" || collision.gameObject.tag == "Table")
+        {
             gradeTracker.DecreaseGrade(1);
             this.gameObject.SetActive(false);
         }

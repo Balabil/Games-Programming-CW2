@@ -6,8 +6,8 @@ public class PlayerCough : MonoBehaviour
 {
     // Update is called once per frame
     public AudioSource Cough;
-    private float count;
-    private bool cd;
+    public float count;
+    public bool cd;
     public bool CoughActive;
 
     void Start(){

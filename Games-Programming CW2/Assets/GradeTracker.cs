@@ -36,6 +36,8 @@ public class GradeTracker : MonoBehaviour
         currentGrade -= damage;
         gradeIndicator.SetGrade(currentGrade);
     }
+
+  
     public void IncreaseGrade(float damage)
     {
         currentGrade += damage;

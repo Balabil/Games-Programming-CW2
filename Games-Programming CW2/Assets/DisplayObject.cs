@@ -20,12 +20,12 @@ public class DisplayObject : MonoBehaviour
     public bool AlarmActive;
     public bool AlarmUsed;
     public bool StartActive;
-    private bool cd;
-    private bool cd2;
+    public bool cd;
+    public bool cd2;
     private int count;
     private int count2;
-    private float count3;
-    private float count4;
+    public float count3;
+    public float count4;
     AIcontroller aiController;
     // Update is called once per frame
     
@@ -38,6 +38,7 @@ public class DisplayObject : MonoBehaviour
         count = 0;
         count2 = 0;
         count3 = 0f;
+        count4 = 0f;
         Time.timeScale = 1f;
         aiController = Invigilator.GetComponent<AIcontroller>();
     }
@@ -57,9 +58,9 @@ public class DisplayObject : MonoBehaviour
                             cd = false;
             }
                     }
-                    if(cd2 == true && count4 < 5){
+                    if(cd2 == true && count4 < 30){
                         count4 = count4 + Time.deltaTime;
-                        if(count4 >= 5){
+                        if(count4 >= 30){
                             count4 = 0;
                             cd2 = false;
             }

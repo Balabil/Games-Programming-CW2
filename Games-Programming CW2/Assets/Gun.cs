@@ -9,8 +9,8 @@ public class Gun : MonoBehaviour
     public Camera PlayerCamera;
     public Transform point;
     private float count;
-    private bool cd;
-    private float count2;
+    public bool cd;
+    public float count2;
 
     private void Start(){
         cd = false;

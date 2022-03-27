@@ -23,11 +23,12 @@ public class AIcontroller : MonoBehaviour
     GradeTracker gradeTracker;
     public float limit;
     PlayerCough playerCough;
+
     // Start is called before the first frame update
     void Start()
     {
         agent = this.GetComponent<NavMeshAgent>();
-     
+
         //stops the agent from stopping
         agent.autoBraking = false;
         //gets the transform of compents that are children of the object
@@ -60,6 +61,7 @@ public class AIcontroller : MonoBehaviour
     void Update()
     {
         if(displayObject.AlarmActive == true){
+            
             cd = true;
             gradeTracker.DecreaseGrade(20);
             displayObject.AlarmActive = false;
@@ -71,7 +73,7 @@ public class AIcontroller : MonoBehaviour
     }
         if(playerCough.CoughActive == true){
             cd = true;
-            gradeTracker.DecreaseGrade(3);
+            gradeTracker.DecreaseGrade(7);
             playerCough.CoughActive = false;
     }
         if(displayObject.StartActive == true && limit < 2){

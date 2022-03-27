@@ -24,4 +24,18 @@ public class GradeIndicator : MonoBehaviour
         slider.value = grade;
         fill.color = gradient.Evaluate(slider.normalizedValue);
     }
+
+    public void SetValue(float grade)
+    {
+
+        slider.value = grade;
+   
+    }
+    public void SetMaxValue(float grade)
+    {
+        slider.maxValue = grade;
+        slider.value = grade;
+
+    
+    }
 }
