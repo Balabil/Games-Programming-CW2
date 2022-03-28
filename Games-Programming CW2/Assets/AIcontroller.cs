@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using TMPro;
+using UnityEngine.SceneManagement;
+
 
 public class AIcontroller : MonoBehaviour
 {
 
 
     NavMeshAgent agent;
-
+ 
 
     public GameObject gamePoints;
     Transform[] points;
@@ -25,11 +28,15 @@ public class AIcontroller : MonoBehaviour
     public float count6;
     public float count7;
     public float count8;
+    public float count9;
     public bool actionTriggered;
     public bool actionTriggered2;
     public bool actionTriggered3;
     public bool actionTriggered4;
+    public TextMeshProUGUI strikeText;
     PlayerCough playerCough;
+    public bool Hit;
+    int strikes;
 
     // Start is called before the first frame update
     void Start()
@@ -48,10 +55,14 @@ public class AIcontroller : MonoBehaviour
         gradeTracker = Player.GetComponent<GradeTracker>();
         playerCough = Player.GetComponent<PlayerCough>();
         count5 = 0;
+        count9 = 0;
+        strikes = 0;
         actionTriggered = false;
         actionTriggered2 = false;
         actionTriggered3 = false;
         actionTriggered4 = false;
+        Hit = false;
+        strikeText.SetText("Strikes {0} / 3", strikes);
     }
 
     //This code was taken from https://docs.unity3d.com/Manual/nav-AgentPatrol.html
@@ -101,12 +112,32 @@ public class AIcontroller : MonoBehaviour
             if(count >= 1){
             agent.destination = transform.position;
             transform.LookAt(player);
+                
             }
             count = count + Time.deltaTime;
-
+            
             if(count >= 3){
                 count = 0;
                 cd = false;
+             
+            }
+
+        
+        if(Hit == true && count9 < 0.3)
+            {
+                count9 = count9 + Time.deltaTime;
+                if(count9 >= 0.3)
+                {
+                    Hit = false;
+                    count9 = 0;
+                    strikeText.SetText("Strikes {0} / 3", strikes);
+                    strikes++;
+                }
+            }
+
+        if (strikes  > 3)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
         //calculates the distance from the player

@@ -8,11 +8,11 @@ public class Clock : MonoBehaviour
     public Transform clockHandTransfrom;
     void Start()
     {
-      
+ 
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         clockHandTransfrom.eulerAngles = new Vector3(0, 0, -Time.realtimeSinceStartup* 6f);
     }

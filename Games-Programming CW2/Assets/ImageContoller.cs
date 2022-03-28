@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
 public class ImageContoller : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -21,14 +23,15 @@ public class ImageContoller : MonoBehaviour
     public GameObject camera;
     private DisplayObject displayObject;
     private Gun gun;
+    
     void Start()
     {
         displayObject = camera.GetComponent<DisplayObject>();
         gun = camera.GetComponent<Gun>();
         playerCough = player.GetComponent<PlayerCough>();
         kickSlider.SetMaxValue(5);
-        coughSlider.SetMaxGrade(3);
-        waterSlider.SetMaxGrade(5);
+        coughSlider.SetMaxValue(3);
+        waterSlider.SetMaxValue(5);
         computerSlider.SetMaxValue(30);
     }
 
