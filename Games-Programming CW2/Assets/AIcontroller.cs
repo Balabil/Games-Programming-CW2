@@ -29,6 +29,7 @@ public class AIcontroller : MonoBehaviour
     public float count7;
     public float count8;
     public float count9;
+    public float count10;
     public bool actionTriggered;
     public bool actionTriggered2;
     public bool actionTriggered3;
@@ -56,6 +57,7 @@ public class AIcontroller : MonoBehaviour
         playerCough = Player.GetComponent<PlayerCough>();
         count5 = 0;
         count9 = 0;
+        count10 = 0;
         strikes = 0;
         actionTriggered = false;
         actionTriggered2 = false;
@@ -147,8 +149,19 @@ public class AIcontroller : MonoBehaviour
 
 
                 //if the agent is not searching for a path and the distance between the destination is less than 0.5
-        else if (!agent.pathPending && agent.remainingDistance < 0.5f)
+        else if (!agent.pathPending && agent.remainingDistance < 0.5f){
             GotoNextPoint();
+        }
+        if(count10 < 18){
+            if(count10 >= 15){
+                agent.destination = transform.position;
+                transform.LookAt(player);          
+            }
+            count10 = count10 + Time.deltaTime;
+            if(count10 >= 18){
+                count10 = 0;
+            }
+        }
                 
         
 
